@@ -1,0 +1,246 @@
+﻿@page
+@model DOINHE.Pages.Product.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Layout";
+}
+<main class="main">
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+        <div class="container position-relative">
+            <h1>Contact</h1>
+            <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a href="index">Home</a></li>
+                    <li class="current">Contact</li>
+                </ol>
+            </nav>
+        </div>
+    </div><!-- End Page Title -->
+@* <h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Product.ProductName" class="control-label"></label>
+                <input asp-for="Product.ProductName" class="form-control" />
+                <span asp-validation-for="Product.ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.CategoryId" class="control-label"></label>
+                <select asp-for="Product.CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.UserId" class="control-label"></label>
+                <select asp-for="Product.UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.DateTimeStart" class="control-label"></label>
+                <input asp-for="Product.DateTimeStart" class="form-control" />
+                <span asp-validation-for="Product.DateTimeStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.DateTimeEnd" class="control-label"></label>
+                <input asp-for="Product.DateTimeEnd" class="form-control" />
+                <span asp-validation-for="Product.DateTimeEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.CreateDate" class="control-label"></label>
+                <input asp-for="Product.CreateDate" class="form-control" />
+                <span asp-validation-for="Product.CreateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Address" class="control-label"></label>
+                <input asp-for="Product.Address" class="form-control" />
+                <span asp-validation-for="Product.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Description" class="control-label"></label>
+                <input asp-for="Product.Description" class="form-control" />
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.StatusIsBuy" class="control-label"></label>
+                <input asp-for="Product.StatusIsBuy" class="form-control" />
+                <span asp-validation-for="Product.StatusIsBuy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.StatusIsApprove" class="control-label"></label>
+                <input asp-for="Product.StatusIsApprove" class="form-control" />
+                <span asp-validation-for="Product.StatusIsApprove" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.ImgDescription" class="control-label"></label>
+                <input asp-for="Product.ImgDescription" class="form-control" />
+                <span asp-validation-for="Product.ImgDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Key" class="control-label"></label>
+                <input asp-for="Product.Key" class="form-control" />
+                <span asp-validation-for="Product.Key" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.ImgKey" class="control-label"></label>
+                <input asp-for="Product.ImgKey" class="form-control" />
+                <span asp-validation-for="Product.ImgKey" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+           
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div> *@
+    <!-- Contact Section -->
+   
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row gy-4">
+               
+
+                <div class="col-lg-6">
+                <form enctype="multipart/form-data" method="post" class="form" data-aos="fade-up" data-aos-delay="500">
+                        <div class="row gy-4">
+
+                            <div class="col-md-6">
+                            <label asp-for="Product.ProductName" class="control-label"></label>
+                                <input asp-for="Product.ProductName" class="form-control" placeholder="Product Name" />
+                                <span asp-validation-for="Product.ProductName" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 ">
+                            <label asp-for="Product.CategoryId" class="control-label"></label>
+                                <select asp-for="Product.CategoryId" class="form-control" asp-items="ViewBag.CategoryName" placeholder="Category"></select>
+                                
+                            </div>
+                            <div class="col-md-6 ">
+                            <label asp-for="Product.DateTimeStart" class="control-label"></label>
+                            <input asp-for="Product.DateTimeStart" class="form-control" placeholder="Time Start" />
+                                <span asp-validation-for="Product.DateTimeStart" class="text-danger"></span>
+                                
+                            </div>
+                            <div class="col-md-6 ">
+                            <label asp-for="Product.DateTimeEnd" class="control-label"></label>
+                            <input asp-for="Product.DateTimeEnd" class="form-control" placeholder="Time End" />
+                                <span asp-validation-for="Product.DateTimeEnd" class="text-danger"></span>
+                                
+                            </div>
+                            <div class="col-md-6 ">
+                            <label asp-for="Product.Price" class="control-label"></label>
+                            <input asp-for="Product.Price" class="form-control" placeholder="Price" />
+                                <span asp-validation-for="Product.Price" class="text-danger"></span>
+
+                            </div>
+                            <div class="col-md-6 ">
+                            <label asp-for="Product.Address" class="control-label"></label>
+                            <input asp-for="Product.Address" class="form-control" placeholder="Address" />
+                                <span asp-validation-for="Product.Address" class="text-danger"></span>
+
+                            </div>
+                            <div class="col-md-6 ">
+                            <label asp-for="Product.Description" class="control-label"></label>
+                            <input asp-for="Product.Description" class="form-control" placeholder="Description" />
+                                <span asp-validation-for="Product.Description" class="text-danger"></span>
+
+                            </div>
+                            <div class="col-md-6 ">
+                            <label asp-for="Product.ImgDescription" class="control-label"></label>
+                            <input asp-for="Product.ImgDescription" class="form-control" placeholder="Img Description" onchange="previewImage(event)" />
+                                <span asp-validation-for="Product.ImgDescription" class="text-danger"></span>
+
+                            </div>
+                        <div class="form-group">
+                            <img id="imagePreview" src="#" alt="Image Preview" style="display:none; width: 100px; height: auto;" />
+                        </div>
+                            <div class="col-md-6 ">
+                            <label asp-for="Product.Key" class="control-label"></label>
+                            <input asp-for="Product.Key" class="form-control" placeholder="Key" />
+                                <span asp-validation-for="Product.Key" class="text-danger"></span>
+
+                            </div>
+                        <div class="col-md-6 ">
+                            <label asp-for="Product.ImgKey" class="control-label"></label>
+                            <input asp-for="Product.ImgKey" class="form-control" placeholder="Img Key" onchange="previewImage2(event)" />
+                        <span asp-validation-for="Product.ImgKey" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <img id="imagePreview2" src="#" alt="Image Preview" style="display:none; width: 100px; height: auto;" />
+                        </div>
+                            <div class="col-md-12 text-center">
+                               
+
+                                <button type="submit">Create Product</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div><!-- End Contact Form -->
+
+            </div>
+
+        </div>
+
+    <div>
+        <a asp-page="Index">Back to List</a>
+    </div>
+
+
+</main>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        function previewImage(event) {
+            const imagePreview = document.getElementById('imagePreview');
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block';
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.src = '#';
+                imagePreview.style.display = 'none';
+            }
+        }
+    </script>
+    <script>
+        function previewImage2(event) {
+            const imagePreview = document.getElementById('imagePreview2');
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block';
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.src = '#';
+                imagePreview.style.display = 'none';
+            }
+        }
+    </script>
+}

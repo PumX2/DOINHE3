@@ -1,0 +1,91 @@
+﻿@page
+@model DOINHE.Pages.SignupModel
+@{
+}
+<body>
+    <div class="screen-1">
+        <form method="post">
+            <div class="email">
+                <label for="email">Email Address</label>
+                <div class="sec-2">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="email" name="User.Email" placeholder="Username@gmail.com" required />
+                </div>
+            </div>
+            <button type="button" class="send-code" onclick="sendCode()">Nhận mã xác nhận</button>
+
+            <div class="code">
+                <label for="verificationCode">Verification Code</label>
+                <div class="sec-2">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="text" name="verificationCode" placeholder="123456" />
+                </div>
+            </div>
+            <button type="button" class="verify-code" onclick="verifyCode()">Xác nhận mã</button>
+
+            <div class="password">
+                <label for="password">Password</label>
+                <div class="sec-2">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input class="pas" type="password" name="User.Password" placeholder="**********" required />
+                </div>
+            </div>
+
+            <button type="submit" class="register" disabled>Đăng ký</button>
+        </form>
+    </div>
+
+    <script>
+        function sendCode() {
+            const email = document.querySelector('input[name="User.Email"]').value;
+            if (!email) {
+                alert("Vui lòng nhập email");
+                return;
+            }
+
+            // Gọi API gửi mã xác nhận
+            fetch('/api/send-verification-code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);  // Hiển thị thông báo thành công
+                    } else {
+                        alert(data.message);  // Hiển thị thông báo lỗi
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Có lỗi xảy ra khi gửi yêu cầu. Vui lòng thử lại.");
+                });
+        }
+
+        function verifyCode() {
+            const code = document.querySelector('input[name="verificationCode"]').value;
+            if (!code) {
+                alert("Vui lòng nhập mã xác nhận");
+                return;
+            }
+            // Gọi API xác thực mã
+            fetch('/api/verify-code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ code }),
+            }).then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.querySelector('.register').disabled = false;
+                    alert("Mã xác nhận đúng, bạn có thể đăng ký");
+                } else {
+                    alert("Mã xác nhận không đúng");
+                }
+            });
+        }
+    </script>
+</body>

@@ -1,0 +1,127 @@
+﻿@page
+@model DOINHE.Pages.Product.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].DateTimeStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].DateTimeEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].StatusIsBuy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].StatusIsApprove)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ImgDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Key)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ImgKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Users)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Categories)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Product) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusIsBuy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusIsApprove)
+            </td>
+                <td>
+                    @if (item.ImgDescription != null)
+                    {
+                        var base64Image = Convert.ToBase64String(item.ImgDescription!);
+                        var imageSrc = $"data:image/png;base64,{base64Image}"; // Thay đổi `image/png` nếu định dạng khác
+
+                        <img src="@imageSrc" alt="Image" style="max-width: 100px; max-height: 100px;" />
+                    }
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Key)
+            </td>
+                <td>
+                    @if (item.ImgKey != null)
+                    {
+                        @* var base64Image2 = Convert.ToBase64String(item.ImgKey);
+                        var imageSrc2 = $"data:image/png;base64,{base64Image2}"; // Thay đổi `image/png` nếu định dạng khác
+
+                        <img src="@imageSrc2" alt="Image" style="max-width: 100px; max-height: 100px;" /> *@
+                    }
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Users.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categories.CategoryName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
